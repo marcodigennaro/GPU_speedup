@@ -38,8 +38,7 @@ def double_well(x: np.ndarray, y: np.ndarray) -> np.ndarray:
 
 
 @timeit_decorator
-def find_min_np(N: int = 10000, low_val: float = -10, high_val: float = 10) -> tuple[
-    ndarray[Any, dtype[floating[_64Bit] | float_]], ndarray[Any, dtype[floating[_64Bit] | float_]], ndarray[Any, Any]]:
+def find_min_np(N: int = 10000, low_val: float = -10, high_val: float = 10):
     x_array = np.random.uniform(low_val, high_val, N)
     y_array = np.random.uniform(low_val, high_val, N)
     z_array = double_well(x_array, y_array)
@@ -51,7 +50,7 @@ def find_min_np(N: int = 10000, low_val: float = -10, high_val: float = 10) -> t
 
 
 @timeit_decorator
-def find_min_tf(N: int = 10000, low_val: float = -10, high_val: float = 10) -> Tuple[tf.Tensor, tf.Tensor, tf.Tensor]:
+def find_min_tf(N: int = 10000, low_val: float = -10, high_val: float = 10):
     x_tensor = tf.random.uniform(shape=(N,), minval=low_val, maxval=high_val)
     y_tensor = tf.random.uniform(shape=(N,), minval=low_val, maxval=high_val)
     z_tensor = double_well(x_tensor, y_tensor)  # Ensure double_well is compatible with TensorFlow operations
