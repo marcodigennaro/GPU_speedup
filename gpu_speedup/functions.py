@@ -1,6 +1,5 @@
 import tensorflow as tf
 
-
 def matrix_elem_sum():
     """
     Perform a convolution operation on a random image tensor.
