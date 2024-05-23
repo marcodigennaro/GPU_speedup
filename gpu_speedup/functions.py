@@ -1,6 +1,8 @@
 import tensorflow as tf
 import numpy as np
 
+from gpu_speedup.wrapper import timeit_decorator
+
 
 def matrix_elem_sum():
     """
@@ -36,6 +38,7 @@ def double_well(x, y):
     return np.sin(x) * np.cos(y) + (x ** 2 + y ** 2) / 10
 
 
+@timeit_decorator
 def find_min_np():
     N = 10000
 
@@ -54,8 +57,9 @@ def find_min_np():
 
     return min_x, min_y, min_z
 
-def find_min_tf():
 
+@timeit_decorator
+def find_min_tf():
     # Define the number of iterations/samples
     N = 100000
 
